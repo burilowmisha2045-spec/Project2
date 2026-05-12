@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Галерея */
+.gallery {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 32px;
+}
+
+/* Карточка */
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+}
+
+/* Контейнер для фото */
+.image-container {
+    width: 100%;
+    height: 280px;                    /* фиксированная высота для ровного вида */
+    overflow: hidden;
+    position: relative;
+    background: #f1f1f1;
+    transition: all 0.5s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;                /* по умолчанию — красиво обрезано */
+    object-position: center;
+    transition: transform 0.7s ease;  /* плавный эффект */
+    transform-origin: center center;
+}
+
+.card:hover img {
+    transform: scale(0.85);           /* отдаляем фото, чтобы было видно полностью */
+    object-fit: contain;              /* при наведении показываем всю фотографию */
+}
+
+/* Информация */
+.info {
+    padding: 24px;
+    flex-grow: 1;
+}
+
+.info h2 {
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-size: 1.38rem;
+}
+
+.info p {
+    color: #555;
+}
+
+/* Адаптив */
+@media (max-width: 520px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+    .image-container {
+        height: 250px;
+    }
+    .card:hover img {
+        transform: scale(0.90);
+    }
+}
